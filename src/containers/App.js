@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native';
 
-export default class App extends Component<{}> {
+export default class Dike extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
