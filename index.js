@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './src/containers/App';
+import App from './app/containers/App';
 
 AppRegistry.registerComponent('Dike', () => App);
