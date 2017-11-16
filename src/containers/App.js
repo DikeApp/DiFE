@@ -1,33 +1,20 @@
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
 
-export default class Dike extends Component<{}> {
+import { Router, Scene, Actions } from 'react-native-router-flux';
+import Home from './Home';
+import Login from './Login';
+
+class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Dike!
-        </Text>
-      </View>
+      <Router>
+        <Scene key="root" hideNavBar= {true}>
+          <Scene key="login" component={Login} title="Login Page" initial />
+          <Scene key="home" component={Home} title="Home Page" />
+        </Scene>
+      </Router>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-});
+export default App;
