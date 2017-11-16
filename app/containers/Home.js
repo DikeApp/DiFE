@@ -17,12 +17,12 @@ class Home extends Component {
 
   render() {
     return (
-    <View style = {styles.container}>
-      <Text style = {styles.welcome}>
-        Dike!
-      </Text>
-    </View>
-  )
+      <View style = {styles.container}>
+        <Text style = {styles.welcome}>
+          Dike!
+        </Text>
+      </View>
+    )
   };
 }
 
