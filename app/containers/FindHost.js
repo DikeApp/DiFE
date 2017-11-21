@@ -36,7 +36,7 @@ class FindHost extends Component {
     let button = require('../../assets/find_host/submit.png')
     return (
       <View style = {{backgroundColor: 'white', flex: 10, alignItems: 'center', justifyContent: 'space-between'}}>
-        <Image source = {header} style = {BaseStyles.header} resizeMode = 'contain' />
+        <Image source = {header} style = {[BaseStyles.header, {marginRight: 210}]} resizeMode = 'contain' />
 
         <PickerBox
           prompt = 'From'
