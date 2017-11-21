@@ -5,7 +5,7 @@ import {
   TextInput
 } from 'react-native'
 
-import styles from '../styles/createTrip_styles.js'
+import styles from '../styles/baseStyles.js'
 
 class PickerBox extends Component {
 

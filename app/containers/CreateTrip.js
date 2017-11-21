@@ -8,10 +8,9 @@ import {
   TextInput,
   Alert,
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import DatePicker from 'react-native-datepicker';
 
-import CreateTripStyles from '../styles/createTrip_styles'
+import BaseStyles from '../styles/baseStyles'
 import PickerBox from '../components/locationPicker'
 
 class CreateTrip extends Component {
@@ -37,7 +36,7 @@ class CreateTrip extends Component {
     let button = require('../../assets/create_trip/submit.png')
     return (
       <View style = {{backgroundColor: 'white', flex: 10, alignItems: 'center', justifyContent: 'space-between'}}>
-        <Image source = {header} style = {CreateTripStyles.header} resizeMode = 'contain' />
+        <Image source = {header} style = {BaseStyles.header} resizeMode = 'contain' />
 
         <PickerBox
           prompt = 'From'
@@ -51,10 +50,10 @@ class CreateTrip extends Component {
           onChangeText = {(destination) => this.setState({destination})}
         />
 
-        <View style = {CreateTripStyles.pickerContainer}>
-          <Text style = {CreateTripStyles.pickerPrompt}>Date</Text>
+        <View style = {BaseStyles.pickerContainer}>
+          <Text style = {BaseStyles.pickerPrompt}>Date</Text>
           <DatePicker
-            style = {CreateTripStyles.pickerText}
+            style = {BaseStyles.pickerText}
             date = {this.state.date}
             placeholder = 'Choose your departure date'
             format = 'MM-DD-YYYY'
@@ -68,11 +67,11 @@ class CreateTrip extends Component {
           />
         </View>
 
-        <View style = {CreateTripStyles.pickerContainer}>
-          <Text style = {CreateTripStyles.pickerPrompt}>Time</Text>
+        <View style = {BaseStyles.pickerContainer}>
+          <Text style = {BaseStyles.pickerPrompt}>Time</Text>
           <DatePicker
             mode = 'time'
-            style = {CreateTripStyles.pickerText}
+            style = {BaseStyles.pickerText}
             date = {this.state.time}
             format = 'hh:mm A'
             placeholder = 'Choose your departure time'
@@ -86,21 +85,21 @@ class CreateTrip extends Component {
           />
         </View>
 
-        <View style = {CreateTripStyles.pickerContainer}>
-          <Text style = {[CreateTripStyles.pickerPrompt, {flex: 3}]}>Share Price</Text>
+        <View style = {BaseStyles.pickerContainer}>
+          <Text style = {[BaseStyles.pickerPrompt, {flex: 3}]}>Share Price</Text>
           <TextInput
-            style = {[CreateTripStyles.pickerText]}
+            style = {[BaseStyles.pickerText]}
             placeholder = 'Enter the amount you want to share'
             onChangeText = {(sharePrice) => this.setState({sharePrice})}
           />
         </View>
 
-        <View style = {[CreateTripStyles.pickerContainer, {flex: 3, alignItems: 'flex-start'}]}>
-          <Text style = {[CreateTripStyles.pickerPrompt, {marginTop: 10, flex: 3}]}>
+        <View style = {[BaseStyles.pickerContainer, {flex: 3, alignItems: 'flex-start'}]}>
+          <Text style = {[BaseStyles.pickerPrompt, {marginTop: 10, flex: 3}]}>
             Special Note
           </Text>
           <TextInput
-            style = {[CreateTripStyles.pickerText, {marginTop: 5}]}
+            style = {[BaseStyles.pickerText, {marginTop: 5}]}
             placeholder = 'Additional notes for your host'
             onChangeText = {(note) => this.setState({note})}
             multiline = {true}
