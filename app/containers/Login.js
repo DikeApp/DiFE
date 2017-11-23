@@ -4,47 +4,81 @@ import {
   Image,
   Text,
   ImageBackground,
-  StyleSheet
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
 } from 'react-native'
 import { Actions } from 'react-native-router-flux';
+import Styles from '../styles/login_styles'
 
 class Login extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      // add states
+      username: '',
+      password: ''
     }
+  }
+
+  _onPressSignInButton() {
+    Actions.feedTab()
+
+    // Todo: Add front-end login logics
   }
 
   render() {
     let logo = require('../../assets/logo/dikeLogo_white.png');
-    let background = require('../../assets/background/loginBackground.png');
+    let background = require('../../assets/login/background.png');
+    let text_input_border = require('../../assets/login/text_input_border.png');
+    let sign_in_button = require('../../assets/login/sign_in_button.png');
+
     return (
-      // <Image source = {logo}
-      //  style = {styles.logo}
-      //  onPress={() => Actions.home()} />
-    // <View style = {styles.container}>
-      <ImageBackground source = {background} style = {styles.background}>
-        <Image source = {logo} style = {styles.logo}
+      <ImageBackground source = {background} style = {Styles.background}>
+
+        <Image source = {logo} style = {Styles.logo}
          resizeMode = 'contain'
         />
+        <ImageBackground
+          source = {text_input_border}
+          style = {Styles.username_border}
+          resizeMode = 'contain'>
+
+          <TextInput
+            style = {Styles.username_text_input}
+            placeholder = 'Username'
+            placeholderTextColor = 'grey'
+            onChangeText = {(username) => this.setState({username})}
+          />
+
+        </ImageBackground>
+
+        <ImageBackground
+          source = {text_input_border}
+          style = {Styles.password_border}
+          resizeMode = 'contain'>
+
+          <TextInput
+            secureTextEntry = {true}
+            style = {Styles.password_text_input}
+            placeholder = 'Password'
+            placeholderTextColor = 'grey'
+            onChangeText = {(password) => this.setState({password})}
+          />
+
+        </ImageBackground>
+
+        <TouchableOpacity onPress = {this._onPressSignInButton}>
+          <Image
+            style = {Styles.sign_in_button}
+            source = {sign_in_button}
+            // resizeMode = 'contain'
+          />
+        </TouchableOpacity>
+
       </ImageBackground>
-    // </View>
-  )
+    )
   };
 }
-
-const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  logo: {
-    marginTop: 160,
-    height: 83,
-    width: 159,
-  }
-});
 
 export default Login;
