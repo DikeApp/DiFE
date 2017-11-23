@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-const CreateTripStyles = StyleSheet.create({
+const BaseStyles = StyleSheet.create({
   header: {
     flex: 3,
     marginTop: 20,
@@ -32,4 +32,4 @@ const CreateTripStyles = StyleSheet.create({
   }
 })
 
-export default CreateTripStyles
+export default BaseStyles
