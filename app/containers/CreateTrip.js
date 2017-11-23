@@ -13,6 +13,7 @@ import DatePicker from 'react-native-datepicker';
 import CreateTripStyles from '../styles/createTrip_styles'
 import PickerBox from '../components/locationPicker'
 
+
 class CreateTrip extends Component {
 
   constructor(props) {
