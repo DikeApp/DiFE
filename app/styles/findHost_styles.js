@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native'
 
-const BaseStyles = StyleSheet.create({
+const FindHostStyles = StyleSheet.create({
   header: {
     flex: 3,
-    marginTop: 20,
+    marginTop: 10,
     marginBottom: 5,
     marginRight: 140
   },
@@ -32,4 +32,4 @@ const BaseStyles = StyleSheet.create({
   }
 })
 
-export default BaseStyles
+export default FindHostStyles

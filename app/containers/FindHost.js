@@ -11,7 +11,7 @@ import {
 
 import DatePicker from 'react-native-datepicker';
 
-import BaseStyles from '../styles/baseStyles'
+import FindHostStyles from '../styles/findHost_styles'
 import PickerBox from '../components/locationPicker'
 
 class FindHost extends Component {
@@ -36,7 +36,7 @@ class FindHost extends Component {
     let button = require('../../assets/find_host/submit.png')
     return (
       <View style = {{backgroundColor: 'white', flex: 10, alignItems: 'center', justifyContent: 'space-between'}}>
-        <Image source = {header} style = {[BaseStyles.header, {marginRight: 210}]} resizeMode = 'contain' />
+        <Image source = {header} style = {[FindHostStyles.header, {marginRight: 210}]} resizeMode = 'contain' />
 
         <PickerBox
           prompt = 'From'
@@ -50,10 +50,10 @@ class FindHost extends Component {
           onChangeText = {(destination) => this.setState({destination})}
         />
 
-        <View style = {BaseStyles.pickerContainer}>
-          <Text style = {BaseStyles.pickerPrompt}>Date</Text>
+        <View style = {FindHostStyles.pickerContainer}>
+          <Text style = {FindHostStyles.pickerPrompt}>Date</Text>
           <DatePicker
-            style = {BaseStyles.pickerText}
+            style = {FindHostStyles.pickerText}
             date = {this.state.date}
             placeholder = 'Choose your departure date'
             format = 'MM-DD-YYYY'
@@ -67,11 +67,11 @@ class FindHost extends Component {
           />
         </View>
 
-        <View style = {BaseStyles.pickerContainer}>
-          <Text style = {BaseStyles.pickerPrompt}>Time</Text>
+        <View style = {FindHostStyles.pickerContainer}>
+          <Text style = {FindHostStyles.pickerPrompt}>Time</Text>
           <DatePicker
             mode = 'time'
-            style = {BaseStyles.pickerText}
+            style = {FindHostStyles.pickerText}
             date = {this.state.time}
             format = 'hh:mm A'
             placeholder = 'Choose your departure time'
@@ -85,21 +85,21 @@ class FindHost extends Component {
           />
         </View>
 
-        <View style = {BaseStyles.pickerContainer}>
-          <Text style = {[BaseStyles.pickerPrompt, {flex: 3}]}>Share Price</Text>
+        <View style = {FindHostStyles.pickerContainer}>
+          <Text style = {[FindHostStyles.pickerPrompt, {flex: 3}]}>Share Price</Text>
           <TextInput
-            style = {[BaseStyles.pickerText]}
+            style = {[FindHostStyles.pickerText]}
             placeholder = 'Enter the amount you want to share'
             onChangeText = {(sharePrice) => this.setState({sharePrice})}
           />
         </View>
 
-        <View style = {[BaseStyles.pickerContainer, {flex: 3, alignItems: 'flex-start'}]}>
-          <Text style = {[BaseStyles.pickerPrompt, {marginTop: 10, flex: 3}]}>
+        <View style = {[FindHostStyles.pickerContainer, {flex: 3, alignItems: 'flex-start'}]}>
+          <Text style = {[FindHostStyles.pickerPrompt, {marginTop: 10, flex: 3}]}>
             Special Note
           </Text>
           <TextInput
-            style = {[BaseStyles.pickerText, {marginTop: 5}]}
+            style = {[FindHostStyles.pickerText, {marginTop: 5}]}
             placeholder = 'Additional notes for your host'
             onChangeText = {(note) => this.setState({note})}
             multiline = {true}
