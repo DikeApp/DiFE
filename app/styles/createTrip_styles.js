@@ -1,13 +1,16 @@
 import { StyleSheet } from 'react-native'
 
-const Styles = StyleSheet.create({
+const CreateTripStyles = StyleSheet.create({
   header: {
     flex: 3,
+    marginTop: 10,
     marginBottom: 5,
     marginRight: 140
   },
-  picker: {
+  pickerContainer: {
     flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
     width: '95%',
     height: 40,
     borderColor: 'gray',
@@ -15,14 +18,18 @@ const Styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 15
   },
-  note: {
-    flex: 2.5,
-    width: '95%',
-    borderColor: 'gray',
-    borderWidth: 1,
-    borderRadius: 10,
-    marginBottom: 10
+  pickerPrompt: {
+    flex: 1.5,
+    fontWeight: 'bold',
+    marginLeft: 10
+  },
+  pickerText: {
+    flex: 8.5,
+    marginLeft: 10
+  },
+  noteContainer: {
+    flex: 3
   }
 })
 
-export default Styles
+export default CreateTripStyles
