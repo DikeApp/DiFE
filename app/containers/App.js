@@ -19,11 +19,11 @@ class App extends Component {
     return (
       <Router>
         <Scene key = "root" hideNavBar = {true}>
-          {/* <Scene key = "login" component = {Login} title = "Login Page" /> */}
+          <Scene key = "login" component = {Login} title = "Login Page"  initial/>
 
           <Scene key = "main" tabs = {true} hideNavBar = {true} swipeEnabled = {false} >
             <Scene key = "feedTab" title = " " iconName = "Feed" icon = {TabIcon}>
-              <Scene key ="home" component = {Feed} title = "Home" initial />
+              <Scene key ="home" component = {Feed} title = "Home"/>
             </Scene>
 
             <Scene key = "createTripTab" title = " " iconName = "Create Trip" icon = {TabIcon}>
