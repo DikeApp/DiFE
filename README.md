@@ -29,5 +29,6 @@ index.ios.js: iOS entry file
 STACK
 
   react native
+  bitrise
 
 Contributed by Long To, Bao Nguyen.
