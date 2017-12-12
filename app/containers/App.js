@@ -22,7 +22,7 @@ class App extends Component {
           <Scene key = "login" component = {Login} title = "Login Page"  initial/>
 
           <Scene key = "main" tabs = {true} hideNavBar = {true} swipeEnabled = {false} >
-            <Scene key = "feedTab" title = " " iconName = "Feed" icon = {TabIcon}>
+            <Scene key = "feedtab" title = " " iconName = "Feed" icon = {TabIcon}>
               <Scene key ="home" component = {Feed} title = "Home"/>
             </Scene>
 
