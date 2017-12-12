@@ -107,7 +107,7 @@ class CreateTrip extends Component {
           />
         </View>
 
-        <TouchableOpacity onPress = {this._submitCreateTrip}>
+        <TouchableOpacity onPress = {this._submitCreateTrip.bind(this)}>
           <Image source = {button}/>
         </TouchableOpacity>
 
