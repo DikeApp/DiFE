@@ -55,7 +55,8 @@ class Login extends Component {
         <ImageBackground
           source = {text_input_border}
           style = {Styles.username_border}
-        resizeMode = 'contain'>
+          resizeMode = 'contain'
+        >
 
           <TextInput
             style = {Styles.username_text_input}
@@ -69,7 +70,8 @@ class Login extends Component {
         <ImageBackground
           source = {text_input_border}
           style = {Styles.password_border}
-        resizeMode = 'contain'>
+          resizeMode = 'contain'
+        >
 
           <TextInput
             secureTextEntry = {true}
