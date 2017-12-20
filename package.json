@@ -7,16 +7,21 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"adm-zip": "^0.4.7",
+		"plist": "^2.1.0",
 		"react": "16.0.0",
 		"react-native": "0.50.3",
 		"react-native-date-picker": "0.0.1",
 		"react-native-datepicker": "^1.6.0",
 		"react-native-elements": "^0.18.5",
+		"react-native-fbsdk": "^0.6.3",
+		"react-native-fbsdklogin": "0.0.8",
 		"react-native-router-flux": "^4.0.0-beta.24",
 		"react-native-timepicker": "^1.0.3",
 		"react-native-vector-icons": "^4.4.2",
 		"react-redux": "^5.0.6",
-		"redux": "^3.7.2"
+		"redux": "^3.7.2",
+		"xcode": "^1.0.0"
 	},
 	"devDependencies": {
 		"babel-jest": "21.2.0",
