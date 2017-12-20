@@ -22,7 +22,20 @@ class Login extends Component {
   }
 
   _onPressSignInButton() {
-    Actions.feedTab()
+    url = 'https://dikeapp.herokuapp.com/user/'
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password,
+      })
+    })
+    Actions.main()
 
     // Todo: Add front-end login logics
   }
@@ -37,12 +50,13 @@ class Login extends Component {
       <ImageBackground source = {background} style = {Styles.background}>
 
         <Image source = {logo} style = {Styles.logo}
-         resizeMode = 'contain'
+          resizeMode = 'contain'
         />
         <ImageBackground
           source = {text_input_border}
           style = {Styles.username_border}
-          resizeMode = 'contain'>
+          resizeMode = 'contain'
+        >
 
           <TextInput
             style = {Styles.username_text_input}
@@ -56,7 +70,8 @@ class Login extends Component {
         <ImageBackground
           source = {text_input_border}
           style = {Styles.password_border}
-          resizeMode = 'contain'>
+          resizeMode = 'contain'
+        >
 
           <TextInput
             secureTextEntry = {true}
@@ -68,7 +83,7 @@ class Login extends Component {
 
         </ImageBackground>
 
-        <TouchableOpacity onPress = {this._onPressSignInButton}>
+        <TouchableOpacity onPress = {this._onPressSignInButton.bind(this)}>
           <Image
             style = {Styles.sign_in_button}
             source = {sign_in_button}
