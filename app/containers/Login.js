@@ -95,12 +95,13 @@ class Login extends Component {
 
         <TouchableOpacity onPress = {this._onPressSignInButton.bind(this)}>
           <Image
-            style = {[Styles.sign_in_button, {marginBottom: 15}]}
+            style = {Styles.sign_in_button}
             source = {sign_in_button}
           />
         </TouchableOpacity>
 
         <LoginButton
+          style = {Styles.fb_login}
           publishPermissions = {["publish_actions"]}
           onLoginFinished = {
             (error, result) => {

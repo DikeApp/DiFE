@@ -36,8 +36,13 @@ const Styles = StyleSheet.create({
   },
   sign_in_button: {
     marginTop: 19.7,
+    marginBottom: 15,
     height: 24,
     width: 109,
+  },
+  fb_login: {
+    width: 100,
+    height: 30,
   }
 })
 
