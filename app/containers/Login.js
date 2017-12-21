@@ -11,6 +11,12 @@ import {
 import { Actions } from 'react-native-router-flux';
 import Styles from '../styles/login_styles'
 
+const FBSDK = require('react-native-fbsdk');
+const {
+  LoginButton,
+  AccessToken
+} = FBSDK;
+
 class Login extends Component {
 
   constructor(props) {
@@ -24,6 +30,8 @@ class Login extends Component {
   _onPressSignInButton() {
     url = 'https://dikeapp.herokuapp.com/user/'
 
+    alert(this.state.username)
+    //alert(this.state.password)
     fetch(url, {
       method: 'POST',
       headers: {
@@ -36,8 +44,6 @@ class Login extends Component {
       })
     })
     Actions.main()
-
-    // Todo: Add front-end login logics
   }
 
   render() {
@@ -60,6 +66,8 @@ class Login extends Component {
 
           <TextInput
             style = {Styles.username_text_input}
+            autoCorrect = {false}
+            underlineColorAndroid = 'transparent'
             placeholder = 'Username'
             placeholderTextColor = 'grey'
             onChangeText = {(username) => this.setState({username})}
@@ -76,6 +84,8 @@ class Login extends Component {
           <TextInput
             secureTextEntry = {true}
             style = {Styles.password_text_input}
+            autoCorrect = {false}
+            underlineColorAndroid = 'transparent'
             placeholder = 'Password'
             placeholderTextColor = 'grey'
             onChangeText = {(password) => this.setState({password})}
@@ -87,9 +97,30 @@ class Login extends Component {
           <Image
             style = {Styles.sign_in_button}
             source = {sign_in_button}
-            // resizeMode = 'contain'
           />
         </TouchableOpacity>
+
+        <LoginButton
+          style = {Styles.fb_login}
+          publishPermissions = {["publish_actions"]}
+          onLoginFinished = {
+            (error, result) => {
+              if (error) {
+                alert("Login failed with error: " + result.error);
+              } else if (result.isCancelled) {
+                alert("Login was cancelled");
+              } else {
+                AccessToken.getCurrentAccessToken().then(
+                  (data) => {
+                    this.setState({username: data.accessToken.toString(), password: 'testPass'})
+                    this._onPressSignInButton()
+                  }
+                )
+              }
+            }
+          }
+          onLogoutFinished = {() => alert("User logged out")}
+        />
 
       </ImageBackground>
     )

@@ -25,6 +25,7 @@ class Trip extends PureComponent {
       <Avatar
         key = {guestAva.id}
         source = {guestAva.guest}
+        style = {{marginLeft: 5}}
         small
         rounded
       />

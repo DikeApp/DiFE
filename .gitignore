@@ -5,6 +5,12 @@
 # Xcode
 #
 build/
+Frameworks/
+!**/*.xcodeproj
+!**/*.pbxproj
+!**/*.xcworkspacedata
+!**/*.xcsettings
+!**/*.xcscheme
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -28,7 +34,7 @@ project.xcworkspace
 .gradle
 local.properties
 *.iml
-/android/
+build/
 
 # node.js
 #

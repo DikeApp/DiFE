@@ -17,6 +17,8 @@ class PickerBox extends Component {
         </Text>
         <TextInput
           style = {styles.pickerText}
+          autoCorrect = {false}
+          underlineColorAndroid = 'transparent'
           placeholder = {this.props.placeholderText}
           onChangeText = {this.props.onChangeText}
         />

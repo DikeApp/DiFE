@@ -89,6 +89,8 @@ class FindHost extends Component {
           <Text style = {[FindHostStyles.pickerPrompt, {flex: 3}]}>Share Price</Text>
           <TextInput
             style = {[FindHostStyles.pickerText]}
+            autoCorrect = {false}
+            underlineColorAndroid = 'transparent'
             placeholder = 'Enter the amount you want to share'
             onChangeText = {(sharePrice) => this.setState({sharePrice})}
           />
@@ -100,6 +102,8 @@ class FindHost extends Component {
           </Text>
           <TextInput
             style = {[FindHostStyles.pickerText, {marginTop: 5}]}
+            autoCorrect = {false}
+            underlineColorAndroid = 'transparent'
             placeholder = 'Additional notes for your host'
             onChangeText = {(note) => this.setState({note})}
             multiline = {true}
