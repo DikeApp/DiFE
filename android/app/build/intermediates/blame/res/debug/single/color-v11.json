@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/baonguyen/Developer/DiFE/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
+        "source": "/Users/baonguyen/.android/build-cache/3411af3d6800f12a2fe4a15473e0e734501ea0f4/output/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "/Users/baonguyen/Developer/DiFE/android/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
+        "source": "/Users/baonguyen/.android/build-cache/3411af3d6800f12a2fe4a15473e0e734501ea0f4/output/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+    }
+]

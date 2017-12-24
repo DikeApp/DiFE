@@ -1,0 +1,7 @@
+#Wed Dec 20 16:31:18 EST 2017
+base.0=/Users/baonguyen/Developer/DiFE/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b3b32476d1bc9b844dede80aff12bfdc3fda7585
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=/Users/baonguyen/Developer/DiFE/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1d8c46c899394b7baf9eb873fa5b9b808eb835fa/classes.dex
+base.1=/Users/baonguyen/Developer/DiFE/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_1d8c46c899394b7baf9eb873fa5b9b808eb835fa
+file.0=/Users/baonguyen/Developer/DiFE/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b3b32476d1bc9b844dede80aff12bfdc3fda7585/classes.dex
