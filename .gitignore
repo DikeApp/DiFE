@@ -3,9 +3,7 @@
 .DS_Store
 
 # Xcode
-#
 build/
-Frameworks/
 !**/*.xcodeproj
 !**/*.pbxproj
 !**/*.xcworkspacedata
