@@ -29,6 +29,25 @@ class CreateTrip extends Component {
   }
 
   _submitCreateTrip() {
+    url = 'http://localhost:8000/share/'
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        share_ride_from: this.state.origin,
+        share_ride_to: this.state.destination,
+        share_ride_date: this.state.date,
+        share_ride_time: this.state.time,
+        share_ride_price: this.state.sharePrice,
+        share_ride_note: this.state.note,
+        share_ride_user_id: "100", // test user id
+      })
+    })
+
     Alert.alert('Submit create trip')
   }
 

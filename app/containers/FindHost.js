@@ -27,7 +27,26 @@ class FindHost extends Component {
     };
   }
 
-  _submitCreateTrip() {
+  _submitFindHost() {
+    url = 'http://localhost:8000/host/'
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        host_ride_from: this.state.origin,
+        host_ride_to: this.state.destination,
+        host_ride_date: this.state.date,
+        host_ride_time: this.state.time,
+        host_ride_price: this.state.sharePrice,
+        host_ride_note: this.state.note,
+        host_ride_user_id: "100", // test user id
+      })
+    })
+
     Alert.alert('Submit find host')
   }
 
@@ -110,7 +129,7 @@ class FindHost extends Component {
           />
         </View>
 
-        <TouchableOpacity onPress = {this._submitCreateTrip}>
+        <TouchableOpacity onPress = {this._submitFindHost.bind(this)}>
           <Image source = {button}/>
         </TouchableOpacity>
 
