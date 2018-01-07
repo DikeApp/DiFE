@@ -29,7 +29,7 @@ class CreateTrip extends Component {
   }
 
   _submitCreateTrip() {
-    url = 'http://localhost:8000/share/'
+    url = 'https://dike-prod.herokuapp.com/share/'
 
     fetch(url, {
       method: 'POST',
@@ -44,7 +44,7 @@ class CreateTrip extends Component {
         share_ride_time: this.state.time,
         share_ride_price: this.state.sharePrice,
         share_ride_note: this.state.note,
-        share_ride_user_id: "100", // test user id
+        share_ride_user_id: this.props.user_id, // test user id
       })
     })
 

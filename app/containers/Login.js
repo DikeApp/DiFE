@@ -28,10 +28,8 @@ class Login extends Component {
   }
 
   _onPressSignInButton() {
-    url = 'https://dikeapp.herokuapp.com/user/'
+    url = 'https://dike-prod.herokuapp.com/login/'
 
-    alert(this.state.username)
-    //alert(this.state.password)
     fetch(url, {
       method: 'POST',
       headers: {
@@ -42,8 +40,11 @@ class Login extends Component {
         username: this.state.username,
         password: this.state.password,
       })
+    }).then((response) => response.json())
+    .then((responseJson) => {
+      Actions.main({user_id: responseJson.user_id})
     })
-    Actions.main()
+
   }
 
   render() {
@@ -67,6 +68,7 @@ class Login extends Component {
           <TextInput
             style = {Styles.username_text_input}
             autoCorrect = {false}
+            autoCapitalize = 'none'
             underlineColorAndroid = 'transparent'
             placeholder = 'Username'
             placeholderTextColor = 'grey'
@@ -85,6 +87,7 @@ class Login extends Component {
             secureTextEntry = {true}
             style = {Styles.password_text_input}
             autoCorrect = {false}
+            autoCapitalize = 'none'
             underlineColorAndroid = 'transparent'
             placeholder = 'Password'
             placeholderTextColor = 'grey'

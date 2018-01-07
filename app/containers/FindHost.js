@@ -28,7 +28,7 @@ class FindHost extends Component {
   }
 
   _submitFindHost() {
-    url = 'http://localhost:8000/host/'
+    url = 'https://dike-prod.herokuapp.com/host/'
 
     fetch(url, {
       method: 'POST',
@@ -43,7 +43,7 @@ class FindHost extends Component {
         host_ride_time: this.state.time,
         host_ride_price: this.state.sharePrice,
         host_ride_note: this.state.note,
-        host_ride_user_id: "100", // test user id
+        host_ride_user_id: this.props.user_id, // test user id
       })
     })
 
