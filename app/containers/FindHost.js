@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TextInput,
-  Alert,
   StyleSheet,
   Image,
   TouchableOpacity
@@ -13,6 +12,7 @@ import DatePicker from 'react-native-datepicker';
 
 import FindHostStyles from '../styles/findHost_styles'
 import PickerBox from '../components/locationPicker'
+import { fetchAPI } from '../utils/fetch'
 
 class FindHost extends Component {
   constructor(props) {
@@ -28,26 +28,20 @@ class FindHost extends Component {
   }
 
   _submitFindHost() {
-    url = 'https://dike-prod.herokuapp.com/host/'
+    var endpoint = 'host/'
 
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        host_ride_from: this.state.origin,
-        host_ride_to: this.state.destination,
-        host_ride_date: this.state.date,
-        host_ride_time: this.state.time,
-        host_ride_price: this.state.sharePrice,
-        host_ride_note: this.state.note,
-        host_ride_user_id: this.props.user_id, // test user id
-      })
+    fetchAPI(endpoint, 'POST', JSON.stringify({
+      host_ride_from: this.state.origin,
+      host_ride_to: this.state.destination,
+      host_ride_date: this.state.date,
+      host_ride_time: this.state.time,
+      host_ride_price: this.state.sharePrice,
+      host_ride_note: this.state.note,
+      host_ride_user_id: this.props.user_id,
+    })).then((json) => {
+      alert('Submit find host')
     })
 
-    Alert.alert('Submit find host')
   }
 
   render() {

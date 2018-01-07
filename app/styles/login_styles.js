@@ -27,6 +27,7 @@ const Styles = StyleSheet.create({
     height: 35,
     alignItems: 'center',
     marginTop: 13,
+    marginBottom: 10,
   },
   password_text_input: {
     flex: 1,
@@ -35,7 +36,6 @@ const Styles = StyleSheet.create({
     color: 'white',
   },
   sign_in_button: {
-    marginTop: 19.7,
     marginBottom: 15,
     height: 24,
     width: 109,

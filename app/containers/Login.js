@@ -7,9 +7,11 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native'
 import { Actions } from 'react-native-router-flux';
-import Styles from '../styles/login_styles'
+import Styles from '../styles/login_styles';
+import { fetchAPI } from '../utils/fetch';
 
 const FBSDK = require('react-native-fbsdk');
 const {
@@ -23,26 +25,19 @@ class Login extends Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      animating: false
     }
   }
 
   _onPressSignInButton() {
-    url = 'https://dike-prod.herokuapp.com/login/'
-
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: this.state.username,
-        password: this.state.password,
-      })
-    }).then((response) => response.json())
-    .then((responseJson) => {
-      Actions.main({user_id: responseJson.user_id})
+    var endpoint = "login";
+    this.state.animating = true
+    fetchAPI(endpoint, 'POST', JSON.stringify({
+      username: this.state.username,
+      password: this.state.password,
+    })).then((json) => {
+      Actions.main({user_id: json.user_id})
     })
 
   }
@@ -95,6 +90,8 @@ class Login extends Component {
           />
 
         </ImageBackground>
+
+        <ActivityIndicator animating = {this.state.animating} size = 'large'/>
 
         <TouchableOpacity onPress = {this._onPressSignInButton.bind(this)}>
           <Image
