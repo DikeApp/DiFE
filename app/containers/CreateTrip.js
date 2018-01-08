@@ -6,12 +6,12 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
-  Alert,
 } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 
 import CreateTripStyles from '../styles/createTrip_styles'
 import PickerBox from '../components/locationPicker'
+import { fetchAPI } from '../utils/fetch'
 
 
 class CreateTrip extends Component {
@@ -29,7 +29,19 @@ class CreateTrip extends Component {
   }
 
   _submitCreateTrip() {
-    Alert.alert('Submit create trip')
+    var endpoint = "share/"
+
+    fetchAPI(endpoint, 'POST', JSON.stringify({
+      share_ride_from: this.state.origin,
+      share_ride_to: this.state.destination,
+      share_ride_date: this.state.date,
+      share_ride_time: this.state.time,
+      share_ride_price: this.state.sharePrice,
+      share_ride_note: this.state.note,
+      share_ride_user_id: this.props.user_id,
+    })).then((json) => {
+      alert('Submit create trip')
+    })
   }
 
   render() {

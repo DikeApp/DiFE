@@ -7,9 +7,11 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native'
 import { Actions } from 'react-native-router-flux';
-import Styles from '../styles/login_styles'
+import Styles from '../styles/login_styles';
+import { fetchAPI } from '../utils/fetch';
 
 const FBSDK = require('react-native-fbsdk');
 const {
@@ -23,27 +25,21 @@ class Login extends Component {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      animating: false
     }
   }
 
   _onPressSignInButton() {
-    url = 'https://dikeapp.herokuapp.com/user/'
-
-    alert(this.state.username)
-    //alert(this.state.password)
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        username: this.state.username,
-        password: this.state.password,
-      })
+    var endpoint = "login";
+    this.state.animating = true
+    fetchAPI(endpoint, 'POST', JSON.stringify({
+      username: this.state.username,
+      password: this.state.password,
+    })).then((json) => {
+      Actions.main({user_id: json.user_id})
     })
-    Actions.main()
+
   }
 
   render() {
@@ -67,6 +63,7 @@ class Login extends Component {
           <TextInput
             style = {Styles.username_text_input}
             autoCorrect = {false}
+            autoCapitalize = 'none'
             underlineColorAndroid = 'transparent'
             placeholder = 'Username'
             placeholderTextColor = 'grey'
@@ -85,6 +82,7 @@ class Login extends Component {
             secureTextEntry = {true}
             style = {Styles.password_text_input}
             autoCorrect = {false}
+            autoCapitalize = 'none'
             underlineColorAndroid = 'transparent'
             placeholder = 'Password'
             placeholderTextColor = 'grey'
@@ -92,6 +90,8 @@ class Login extends Component {
           />
 
         </ImageBackground>
+
+        <ActivityIndicator animating = {this.state.animating} size = 'large'/>
 
         <TouchableOpacity onPress = {this._onPressSignInButton.bind(this)}>
           <Image
