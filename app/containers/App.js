@@ -15,7 +15,6 @@ import TabIcon from '../components/TabBar';
 
 class App extends Component {
   render() {
-    let createTrip = require('../../assets/home/create_trip.png');
     return (
       <Router>
         <Scene key = "root" hideNavBar = {true}>

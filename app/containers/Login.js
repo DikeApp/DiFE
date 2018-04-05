@@ -31,13 +31,22 @@ class Login extends Component {
   }
 
   _onPressSignInButton() {
-    var endpoint = "login";
+    var endpoint = 'signup/';
     this.state.animating = true
     fetchAPI(endpoint, 'POST', JSON.stringify({
       username: this.state.username,
       password: this.state.password,
     })).then((json) => {
       Actions.main({user_id: json.user_id})
+    }).catch((error) => {
+      alert('Could not signin. Please check your credentials.')
+      this.setState({
+        username: '',
+        password: '',
+        animating: false
+      })
+      this.name.clear();
+      this.pass.clear();
     })
 
   }
@@ -61,6 +70,7 @@ class Login extends Component {
         >
 
           <TextInput
+            ref = {input => {this.name = input}}
             style = {Styles.username_text_input}
             autoCorrect = {false}
             autoCapitalize = 'none'
@@ -79,6 +89,7 @@ class Login extends Component {
         >
 
           <TextInput
+            ref = {input => {this.pass = input}}
             secureTextEntry = {true}
             style = {Styles.password_text_input}
             autoCorrect = {false}
