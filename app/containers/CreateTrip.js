@@ -29,7 +29,7 @@ class CreateTrip extends Component {
   }
 
   _submitCreateTrip() {
-    var endpoint = "share/"
+    var endpoint = 'share/'
 
     fetchAPI(endpoint, 'POST', JSON.stringify({
       share_ride_from: this.state.origin,
@@ -40,7 +40,14 @@ class CreateTrip extends Component {
       share_ride_note: this.state.note,
       share_ride_user_id: this.props.user_id,
     })).then((json) => {
-      alert('Submit create trip')
+      this.price.clear();
+      this.from.clear();
+      this.to.clear();
+      this.setState({date : '', time: ''});
+      this.note.clear();
+      alert('Submit create trip');
+    }).catch((error) => {
+      alert('Could not create trip. Check your information and try again');
     })
   }
 
@@ -52,12 +59,14 @@ class CreateTrip extends Component {
         <Image source = {header} style = {CreateTripStyles.header} resizeMode = 'contain' />
 
         <PickerBox
+          ref = {input => {this.from = input}}
           prompt = 'From'
           placeholderText = 'Enter your start point'
           onChangeText = {(origin) => this.setState({origin})}
         />
 
         <PickerBox
+          ref = {input => {this.to = input}}
           prompt = 'To'
           placeholderText = 'Enter your destination'
           onChangeText = {(destination) => this.setState({destination})}
@@ -66,6 +75,7 @@ class CreateTrip extends Component {
         <View style = {CreateTripStyles.pickerContainer}>
           <Text style = {CreateTripStyles.pickerPrompt}>Date</Text>
           <DatePicker
+            ref = {input => {this.datePicker = input}}
             style = {CreateTripStyles.pickerText}
             date = {this.state.date}
             placeholder = 'Choose your departure date'
@@ -83,6 +93,7 @@ class CreateTrip extends Component {
         <View style = {CreateTripStyles.pickerContainer}>
           <Text style = {CreateTripStyles.pickerPrompt}>Time</Text>
           <DatePicker
+            ref = {input => {this.time = input}}
             mode = 'time'
             style = {CreateTripStyles.pickerText}
             date = {this.state.time}
@@ -101,6 +112,7 @@ class CreateTrip extends Component {
         <View style = {CreateTripStyles.pickerContainer}>
           <Text style = {[CreateTripStyles.pickerPrompt, {flex: 3}]}>Share Price</Text>
           <TextInput
+            ref = {input => {this.price = input}}
             style = {[CreateTripStyles.pickerText]}
             autoCorrect = {false}
             underlineColorAndroid = 'transparent'
@@ -114,6 +126,7 @@ class CreateTrip extends Component {
             Special Note
           </Text>
           <TextInput
+            ref = {input => {this.note = input}}
             style = {[CreateTripStyles.pickerText, {marginTop: 5}]}
             autoCorrect = {false}
             underlineColorAndroid = 'transparent'

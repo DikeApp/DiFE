@@ -1,5 +1,5 @@
 export function fetchAPI(endpoint, method = 'get', data) {
-    let url = 'https://dike-prod.herokuapp.com/' + endpoint;
+    let url = 'http://localhost:8000/' + endpoint;
     let options = {
         method: method,
         headers: {

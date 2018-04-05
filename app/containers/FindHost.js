@@ -39,7 +39,14 @@ class FindHost extends Component {
       host_ride_note: this.state.note,
       host_ride_user_id: this.props.user_id,
     })).then((json) => {
+      this.price.clear();
+      this.from.clear();
+      this.to.clear();
+      this.setState({date : '', time: ''});
+      this.note.clear();
       alert('Submit find host')
+    }).catch((error) => {
+      alert('Could not find host. Check your information and try again');
     })
 
   }
@@ -52,12 +59,14 @@ class FindHost extends Component {
         <Image source = {header} style = {[FindHostStyles.header, {marginRight: 210}]} resizeMode = 'contain' />
 
         <PickerBox
+          ref = {input => this.from = input}
           prompt = 'From'
           placeholderText = 'Enter your start point'
           onChangeText = {(origin) => this.setState({origin})}
         />
 
         <PickerBox
+          ref = {input => this.to = input}
           prompt = 'To'
           placeholderText = 'Enter your destination'
           onChangeText = {(destination) => this.setState({destination})}
@@ -101,6 +110,7 @@ class FindHost extends Component {
         <View style = {FindHostStyles.pickerContainer}>
           <Text style = {[FindHostStyles.pickerPrompt, {flex: 3}]}>Share Price</Text>
           <TextInput
+            ref = {input => this.price = input}
             style = {[FindHostStyles.pickerText]}
             autoCorrect = {false}
             underlineColorAndroid = 'transparent'
@@ -114,6 +124,7 @@ class FindHost extends Component {
             Special Note
           </Text>
           <TextInput
+            ref = {input => this.note = input}
             style = {[FindHostStyles.pickerText, {marginTop: 5}]}
             autoCorrect = {false}
             underlineColorAndroid = 'transparent'
@@ -122,7 +133,7 @@ class FindHost extends Component {
             multiline = {true}
           />
         </View>
-
+        
         <TouchableOpacity onPress = {this._submitFindHost.bind(this)}>
           <Image source = {button}/>
         </TouchableOpacity>
